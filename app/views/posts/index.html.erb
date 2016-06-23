@@ -1,1 +1,11 @@
 <h1>Posts</h1>
+
+<%= link_to 'Create a New Post', new_post_path %>
+
+<% @posts.each do |post| %>
+<div class="post">
+  <hr>
+  <a href="<%=post.link%>"><%=post.title%></a>
+    By: <%= post.author %>
+</div>
+<% end %>

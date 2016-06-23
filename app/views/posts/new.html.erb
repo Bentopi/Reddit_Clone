@@ -1,0 +1,19 @@
+<h1>Make a new Post</h1>
+
+<%= form_for @post, url: create_post_path do |f| %>
+<div class="">
+  <%= f.label :title%>
+  <%= f.text_field :title%>
+  <%= f.label :author%>
+  <%= f.text_field :author%>
+</div>
+<br>
+<div class="">
+  <%= f.label :link%>
+  <%= f.text_field :link%>
+  <%= f.label :body%>
+  <%= f.text_area :body%>
+</div>
+
+  <%= f.submit %>
+<% end %>
