@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'posts#index'
   get '/new'=> 'posts#new', as: :new_post
-  get '/:id' => 'posts#show'
+  get '/:id' => 'posts#detail', as: :post
   post '/' => 'posts#create', as: :create_post
 
 

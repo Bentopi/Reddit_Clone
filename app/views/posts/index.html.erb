@@ -1,11 +1,13 @@
-<h1>Posts</h1>
-
-<%= link_to 'Create a New Post', new_post_path %>
+<h2 class="btn btn-warning btn-lg new_post"><%= link_to 'Create a New Post', new_post_path %></h2>
 
 <% @posts.each do |post| %>
 <div class="post">
   <hr>
-  <a href="<%=post.link%>"><%=post.title%></a>
-    By: <%= post.author %>
+  <%= link_to post_path(id: post.id) do %>
+  <p>
+    <h2><%=post.title %>   <small>By: <%= post.author %></small></h2>
+  </p>
+
+  <% end %>
 </div>
 <% end %>

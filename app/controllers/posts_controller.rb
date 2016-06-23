@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   end
 
   def detail
+    @post = Post.find_by id: params[:id]
 
   end
 

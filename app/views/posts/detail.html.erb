@@ -1,2 +1,10 @@
-<h1>Posts#detail</h1>
-<p>Find me in app/views/posts/detail.html.erb</p>
+<div class="row post_view">
+  <div class="col-xs-12">
+    <h1><%= @post.title %><small> By: <%= @post.author %></small></h1>
+    <h3>URL: <%= link_to @post.link, @post.link %> </h3>
+    <hr>
+    <p>
+      <%= @post.body %>
+    </p>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+.pirate {
+    height: 100px;
+}
+a {
+    header {
+        background-color: #8e44ad;
+        padding: 20px;
+        h1 {
+            color: #ecf0f1;
+            font-size: 60px;
+            text-decoration: none;
+                    &:hover {
+                        text-decoration: none;
+                    }
+            }
+        }
+    }
+body {
+  background-color: lighten(#9b59b6, 45%);
+}
+.post_view {
+  background-color: #ecf0f1;
+  padding-bottom: 30px;
+}
+.post {
+  margin-bottom: 100px;
+}
