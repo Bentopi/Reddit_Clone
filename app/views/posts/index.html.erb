@@ -1,5 +1,6 @@
-<h2 class="btn btn-warning btn-lg new_post"><%= link_to 'Create a New Post', new_post_path %></h2>
-
+<%= link_to new_post_path do %>
+<h2 class="btn btn-warning btn-lg new_post">Create a New Post</h2>
+<% end %>
 <% @posts.each do |post| %>
 <div class="post">
   <hr>
