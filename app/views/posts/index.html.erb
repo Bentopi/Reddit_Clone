@@ -8,12 +8,22 @@
       <% if post.link.present? %>
         <h2>
           URL: <%= link_to post.title, post.link %>
-          <small> By: <%= post.author %> </small>
+          <br>
+          <small>by: <%= post.author %> </small>
+          <br>
+          <small>Submitted <%= time_ago_in_words(post.created_at) %> ago </small>
+          <br>
+          <small> 1337 Comments</small>
         </h2>
       <% else %>
         <h2>
           <%= link_to post.title, post_path(id: post.id) %>
-          <small> By: <%= post.author %> </small>
+          <br>
+          <small>by: <%= post.author %> </small>
+          <br>
+          <small>Submitted <%= time_ago_in_words(post.created_at) %> ago </small>
+          <br>
+          <small> 1337 Comments</small>
         </h2>
       <% end %>
   </div>
