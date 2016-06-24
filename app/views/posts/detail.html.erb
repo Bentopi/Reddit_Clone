@@ -8,3 +8,43 @@
     </p>
   </div>
 </div>
+
+<div class="row">
+  <%= form_for @comment, url: create_comment_path do |f| %>
+    <div class="form-group">
+      <div class="col-xs-10">
+        <h3><%= f.label "Add a Comment:" %></h3>
+        <%= f.text_area :body, class:'form-control', rows:'4'%>
+      </div>
+    <br>
+    </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-xs-2">
+    <%= f.label "Author:"%>
+    <%= f.text_field :author, class: 'form-control'%>
+  </div>
+  <div class="col-xs-3">
+    <%= f.submit class: 'btn btn-primary comment_button'%>
+  </div>
+</div>
+
+  <% end %>
+  <br>
+<% @comments.each do |c| %>
+<div class="comment">
+  <hr>
+  <%= c.body %>
+  <br>
+  <span><small><em>
+    posted <%= time_ago_in_words(c.created_at) %> ago by
+     <% if c.author.present? %>
+     <%= c.author %>.
+     <% else %>
+     anonymous.
+     <% end %>
+   </em></small>
+  </span>
+</div>
+<% end %>

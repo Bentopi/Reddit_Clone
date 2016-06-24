@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get '/new'=> 'posts#new', as: :new_post
   get '/:id' => 'posts#detail', as: :post
   post '/' => 'posts#create', as: :create_post
+  post '/:id' => 'posts#create_comment', as: :create_comment
 
 
   # The priority is based upon order of creation: first created -> highest priority.

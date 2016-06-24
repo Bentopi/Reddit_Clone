@@ -7,24 +7,18 @@
       <hr>
       <% if post.link.present? %>
         <h2>
-          URL: <%= link_to post.title, post.link %>
-          <br>
-          <small>by: <%= post.author %> </small>
-          <br>
-          <small>Submitted <%= time_ago_in_words(post.created_at) %> ago </small>
-          <br>
-          <small> 1337 Comments</small>
-        </h2>
+          <small>URL: </small><%= link_to post.title, post.link %>
       <% else %>
         <h2>
           <%= link_to post.title, post_path(id: post.id) %>
-          <br>
-          <small>by: <%= post.author %> </small>
-          <br>
-          <small>Submitted <%= time_ago_in_words(post.created_at) %> ago </small>
-          <br>
-          <small> 1337 Comments</small>
-        </h2>
       <% end %>
+      <br>
+      <small>by: <%= post.author %> </small>
+      <br>
+      <small>Submitted <%= time_ago_in_words(post.created_at) %> ago </small>
+      <br>
+      <small><%=link_to pluralize(post.comments.size, 'Comment'),
+      post_path(id: post.id)%></small>
+      </h2>
   </div>
 <% end %>
