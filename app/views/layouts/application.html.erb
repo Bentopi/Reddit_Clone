@@ -7,10 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= link_to root_path do %>
   <header class='text-center'>
-    <h1>Totally Reddit</h1>
-    <%=image_tag 'http://img00.deviantart.net/cd1d/i/2006/033/3/e/snoop_dogg_pirate_by_markov.jpg', class:'pirate'%>
+    <%= link_to root_path do %>
+    <div class="row">
+      <div class="col-xs-6 text-center col-xs-offset-3">
+        <h1>Totally Reddit</h1>
+
+      </div>
+    </div>
   </header>
   <% end %>
 <div class="container">
@@ -20,3 +24,4 @@
 
 </body>
 </html>
+        <!-- <%=image_tag 'http://img00.deviantart.net/cd1d/i/2006/033/3/e/snoop_dogg_pirate_by_markov.jpg', class:'pirate'%> -->
