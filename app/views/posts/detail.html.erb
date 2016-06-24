@@ -32,7 +32,7 @@
 
   <% end %>
   <br>
-<% @post.comments.each do |c| %>
+<% @post.comments.reverse.each do |c| %>
 <div class="comment">
   <hr>
   <%= c.body %>

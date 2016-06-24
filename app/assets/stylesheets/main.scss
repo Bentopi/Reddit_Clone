@@ -23,9 +23,30 @@ body {
   background-color: lighten($altColor, 10%);
   padding-bottom: 30px;
 }
-.post {
-  margin-bottom: 30px;
-}
 .comment_button {
   margin-top: 24px;
+}
+.vote_arrow_up {
+  height: 25px;
+  position: absolute;
+  left: 36px;
+}
+.vote_arrow_down {
+  height: 25px;
+  position: absolute;
+  left: 36px;
+  bottom: 20px;
+
+}
+.votes {
+  height: 170px;
+  position: relative;
+  .rating {
+    position: absolute;
+    bottom: 115px;
+    left: 50px;
+    height: 30px;
+    font-weight: bold;
+    font-size: 30px;
+  }
 }

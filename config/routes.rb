@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   root 'posts#index'
-  get '/new'=> 'posts#new', as: :new_post
-  get '/:id' => 'posts#detail', as: :post
-  post '/' => 'posts#create', as: :create_post
-  post '/:id' => 'posts#create_comment', as: :create_comment
+  get 'posts/new'=> 'posts#new', as: :new_post
+  get 'posts/:id' => 'posts#detail', as: :post
+  post 'posts/' => 'posts#create', as: :create_post
+  post 'posts/:id/comments' => 'comments#create', as: :create_comment
+  patch 'posts/:id/upvote' => 'posts#upvote', as: :upvote
+  patch 'posts/:id/downvote' => 'posts#downvote', as: :downvote
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

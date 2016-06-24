@@ -1,24 +1,49 @@
 <%= link_to new_post_path do %>
-  <h2 class="btn btn-primary btn-lg new_post">Create a New Post</h2>
+<h2 class="btn btn-primary btn-lg new_post">Create a New Post</h2>
 <% end %>
 
 <% @posts.each do |post| %>
-  <div class="post">
-      <hr>
-      <% if post.link.present? %>
+<div class="row post">
+    <hr>
+    <div class="col-xs-1 votes well">
+        <div class="row text-center">
+          <%= link_to upvote_path(id: post.id), method: 'patch' do %>
+            <%= image_tag 'http://i.imgur.com/ziEcMQL.png', class: 'vote_arrow_up' %>
+            <% end %>
+        </div>
+        <div class="row text-center rating">
+            <br>
+                <%= post.rating %>
+            <br>
+        </div>
+        <div class="row text-center">
+          <%= link_to downvote_path(id: post.id), method: 'patch' do %>
+            <%= image_tag 'http://i.imgur.com/eqLD2.png', class: 'vote_arrow_down' %>
+            <% end %>
+        </div>
+    </div>
+    <div class="col-xs-11">
+        <% if post.link.present? %>
         <h2>
-          <small>URL: </small><%= link_to post.title, post.link %>
-      <% else %>
-        <h2>
-          <%= link_to post.title, post_path(id: post.id) %>
-      <% end %>
-      <br>
-      <small>by: <%= post.author %> </small>
-      <br>
-      <small>Submitted <%= time_ago_in_words(post.created_at) %> ago </small>
-      <br>
-      <small><%=link_to pluralize(post.comments.size, 'Comment'),
-      post_path(id: post.id)%></small>
-      </h2>
-  </div>
-<% end %>
+            <small>URL:
+            </small><%= link_to post.title, post.link %>
+        <% else %>
+            <h2>
+                <%= link_to post.title, post_path(id: post.id) %>
+                <% end %>
+                <br>
+                <small>by:
+                    <%= post.author %>
+                </small>
+                <br>
+                <small>Submitted
+                    <%= time_ago_in_words(post.created_at) %>
+                    ago
+                </small>
+                <br>
+                <small><%=link_to pluralize(post.comments.size, 'Comment'),
+        post_path(id: post.id)%></small>
+            </h2>
+        </div>
+    </div>
+    <% end %>

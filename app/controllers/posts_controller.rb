@@ -6,7 +6,6 @@ class PostsController < ApplicationController
   def detail
     @post = Post.find_by id: params[:id]
     @comment = Comment.new
-    @comments = Comment.all.order("created_at desc")
   end
 
   def new
@@ -20,21 +19,30 @@ class PostsController < ApplicationController
     @post.link = params[:post][:link]
     @post.author = params[:post][:author]
     if @post.save
-      redirect_to root_path
+      redirect_to post_path
     else
       render :new
     end
   end
-  def create_comment
+
+  def upvote
     @post = Post.find_by id: params[:id]
-    @comment = Comment.new
-    @comment.body = params[:comment][:body]
-    @comment.author = params[:comment][:author]
-    @comment.post_id = @post.id
-    if @comment.save
-      redirect_to post_path(id: @post.id)
+    @post.rating += 1
+    if @post.save
+      redirect_to root_path
     else
-      render :detail
+      render :index
     end
   end
+
+  def downvote
+    @post = Post.find_by id: params[:id]
+    @post.rating -= 1
+    if @post.save
+      redirect_to root_path
+    else
+      render :index
+    end
+  end
+
 end
