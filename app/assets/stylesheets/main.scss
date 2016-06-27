@@ -29,22 +29,24 @@ body {
 .vote_arrow_up {
   height: 25px;
   position: absolute;
-  left: 36px;
+  left: 16px;
+  top: 20px;
 }
 .vote_arrow_down {
   height: 25px;
   position: absolute;
-  left: 36px;
+  left: 16px;
   bottom: 20px;
 
 }
 .votes {
   height: 170px;
   position: relative;
+  width: 60px;
   .rating {
     position: absolute;
-    bottom: 115px;
-    left: 50px;
+    bottom: 74px;
+    left: 20px;
     height: 30px;
     font-weight: bold;
     font-size: 30px;

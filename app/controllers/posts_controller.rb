@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all.order("id desc")
+    @posts = Post.all.order("rating desc")
   end
 
   def detail
@@ -19,7 +19,7 @@ class PostsController < ApplicationController
     @post.link = params[:post][:link]
     @post.author = params[:post][:author]
     if @post.save
-      redirect_to post_path
+      redirect_to post_path(id: @post.id)
     else
       render :new
     end

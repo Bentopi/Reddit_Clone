@@ -5,24 +5,27 @@
 <% @posts.each do |post| %>
 <div class="row post">
     <hr>
-    <div class="col-xs-1 votes well">
-        <div class="row text-center">
+    <div class="col-xs-1">
+      <div class="well votes">
+        <div class="row">
           <%= link_to upvote_path(id: post.id), method: 'patch' do %>
-            <%= image_tag 'http://i.imgur.com/ziEcMQL.png', class: 'vote_arrow_up' %>
+            <%= image_tag 'http://i.imgur.com/ziEcMQL.png', class: 'vote_arrow_up text-center' %>
             <% end %>
         </div>
-        <div class="row text-center rating">
-            <br>
+        <div class="row">
+          <div class="rating">
                 <%= post.rating %>
-            <br>
+          </div>
+
         </div>
-        <div class="row text-center">
+        <div class="row">
           <%= link_to downvote_path(id: post.id), method: 'patch' do %>
-            <%= image_tag 'http://i.imgur.com/eqLD2.png', class: 'vote_arrow_down' %>
+            <%= image_tag 'http://i.imgur.com/eqLD2.png', class: 'vote_arrow_down text-center' %>
             <% end %>
         </div>
+      </div>
     </div>
-    <div class="col-xs-11">
+    <div class="col-xs-6">
         <% if post.link.present? %>
         <h2>
             <small>URL:
